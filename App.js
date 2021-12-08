@@ -16,22 +16,47 @@ export default function App() {
   return (
     
     <View style={styles.container}>
-      <Image source={require('./assets/LogoZeta.png')} style={styles.image1}/>
-      
-      <Text style={{ fontFamily: 'Roboto', fontSize: 30, color: 'white', fontWeight: 'bold',}}>93.9</Text>
-      <Pressable style={styles.button1} onPress={() => alert('Simple Button pressed')}>
+      <Pressable style={styles.backbutton} onPress={() => alert('Return')}>
+      <Image  source={require('./assets/back.png')} style={styles.image2}/>
+      </Pressable>
+      <Pressable style={styles.button1} onPress={() => alert('Logo')}>
       <Image source={require('./assets/LogoZeta.png')} style={styles.image1}/>
       </Pressable>
-      
+      <Text style={{ fontFamily: 'Roboto', fontSize: 30, color: 'white', fontWeight: 'bold', bottom:"5%",}}>93.9</Text>
+      <View style={styles.fixToText}>
+      <Pressable onPress={() => alert('Previous')}>
+      <Image style={styles.Scenebutton1} source={require('./assets/izquierda.png')} />
+      </Pressable>
+      <Pressable onPress={() => alert('Next')}>
+      <Image style={styles.Scenebutton2} source={require('./assets/derecha.png')} />
+      </Pressable>
+      </View>
+      <View style={styles.optionsPad}>
+      <Pressable onPress={() => alert('List')}>
+      <Image style={styles.Optionbutton1} source={require('./assets/lista.png')} />
+      </Pressable>
+      <Pressable onPress={() => alert('Liked')}>
+      <Image style={styles.Optionbutton2} source={require('./assets/like.png')} />
+      </Pressable>
+      </View>
+      <View style={styles.slidePad}>
+      <Pressable onPress={() => alert('Volume down')}>
+      <Image style={styles.image2} source={require('./assets/quiet.png')} />
+      </Pressable>
       <StatusBar style="auto"/>
       <Slider
-        style={{width: 250, height: 50}}
+        style={{width: 200, height: 50}}
         minimumValue={0}
         maximumValue={1}
         minimumTrackTintColor="#FFFFFF"
         maximumTrackTintColor="#000000"
         thumbTintColor="#FFFFFF"
       />
+      <Pressable onPress={() => alert('Volume up')}>
+      <Image style={styles.image2} source={require('./assets/loud.png')} />
+      </Pressable>
+      </View>
+      
     </View>
   );
 }
@@ -63,18 +88,68 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     justifyContent: "center",
   },
+  backbutton: {
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: "10%",
+    right: "38%",
+  },
   image1: {
     width: 170,
     height: 170,
     borderRadius:100,
   },
+  image2: {
+    width: 48,
+    height: 48,
+  },
   button1: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 100,
-    elevation: 3,
-    backgroundColor: 'black'
+    width: 175,
+    height: 175,
+    borderRadius:100,
+    backgroundColor: 'white',
+    bottom: "10%",
   },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: "30%",
+  },
+  Scenebutton1: {
+    width: 48,
+    height: 48,
+    bottom: "40%",
+    right: "50%",
+  },
+  Scenebutton2: {
+    width: 48,
+    height: 48,
+    bottom: "40%",
+    left: "50%",
+  },
+  optionsPad:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    top: "10%",
+    width: "60%",
+  },
+  Optionbutton1: {
+    width: 40,
+    height: 40,
+    bottom: "0%",
+    right: "20%",
+  },
+  Optionbutton2: {
+    width: 40,
+    height: 40,
+    bottom: "0%",
+    left: "20%",
+  },
+  slidePad:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    top: "20%",
+  }
 });
